@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Website Quản Lý</title>
+</head>
+<body>
+    <header class="bg-primary text-white text-center p-3">
+        <h1>Website Quản Lý</h1>
+        <nav>
+            <a href="/" class="text-white">Trang Chủ</a>
+            <a href="/manage" class="text-white">Quản Lý Người Dùng</a>
+            {% if 'user_id' in session %}
+            <a href="/logout" class="text-white">Đăng Xuất</a>
+            {% else %}
+            <a href="/login" class="text-white">Đăng Nhập</a>
+            <a href="/register" class="text-white">Đăng Ký</a>
+            {% endif %}
+        </nav>
+    </header>
+    <main class="container mt-4">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

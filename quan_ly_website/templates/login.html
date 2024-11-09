@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Đăng Nhập</h2>
+<form method="POST" class="form-group">
+    <label for="username">Tên Người Dùng:</label>
+    <input type="text" id="username" name="username" class="form-control" required>
+
+    <label for="password">Mật Khẩu:</label>
+    <input type="password" id="password" name="password" class="form-control" required>
+
+    <button type="submit" class="btn btn-primary mt-3">Đăng Nhập</button>
+    <a href="{{ url_for('register') }}" class="d-block mt-2">Đăng ký tài khoản mới</a>
+    <a href="{{ url_for('reset_password') }}" class="d-block mt-2">Quên mật khẩu?</a>
+</form>
+{% endblock %}

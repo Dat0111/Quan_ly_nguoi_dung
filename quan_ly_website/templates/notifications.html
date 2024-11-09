@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Thông Báo</h2>
+<ul>
+    {% for notification in notifications %}
+    <li>{{ notification.message }} {% if not notification.is_read %} (Chưa đọc) {% endif %}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

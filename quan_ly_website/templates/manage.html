@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Quản Lý Người Dùng</h2>
+<form method="GET" action="/manage">
+    <input type="text" name="search" placeholder="Tìm kiếm theo tên hoặc email" class="form-control mb-3">
+    <button type="submit" class="btn btn-primary">Tìm Kiếm</button>
+</form>
+<table class="table">
+    <tr>
+        <th>Tên Người Dùng</th>
+        <th>Email</th>
+        <th>Vai Trò</th>
+        <th>Hành Động</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td>
+            <a href="/edit_user/{{ user.id }}" class="btn btn-warning btn-sm">Sửa</a>
+            <form method="POST" action="/delete_user/{{ user.id }}" style="display:inline;">
+                <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
